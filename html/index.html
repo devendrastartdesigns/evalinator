@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title>File upload Node.</title>
+  </head>
+  <body>
+      <form id="uploadForm"
+         enctype="multipart/form-data"
+         action="http://projectstatus.dev:5000/api/user/upload"
+         method="post">
+      <input type="file" name="input_files" />
+      <input type="submit" value="Upload Image" name="submit">
+      <span id = "status"></span>
+    </form>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+  <script>
+	  $(document).ready(function() {
+
+	     $('#uploadForm').submit(function(e) {
+	     	e.preventDefault();
+	        $("#status").empty().text("File is uploading...");
+	        let form_data = $(this).serialize()
+	        $.ajax({
+		      type:'POST',
+		      url:'http://projectstatus.dev:5000/api/user/upload',
+		      processData: false,
+		      contentType: false,
+		      async: false,
+		      cache: false,
+		      data : form_data,
+		      error: function(xhr) {
+	        		status('Error: ' + xhr.status);
+	          },
+
+	          success: function(response) {
+	        		$("#status").empty().text(response);
+	                console.log(response);
+	          }
+		  });
+	    });    
+	});
+	</script>
+</html>

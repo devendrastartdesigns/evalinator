@@ -1,0 +1,33 @@
+<!DOCTYPE html>  
+<html lang="en">  
+  
+<head>  
+    <title>  
+        <%=title%>  
+    </title>  
+</head>  
+  
+<body>  
+    <h1>  
+        <%=heading%>  
+    </h1>  
+    
+        <% for(var i=0;i<result.length;i++){ %>
+        <ul>    
+            <li> Id :  <%=result[i].Id%>  </li>  
+            <li> UserName :  <%=result[i].UserName%>  </li>  
+            <li> FirstName :  <%=result[i].FirstName%>  </li>  
+            <li> LastName :  <%=result[i].LastName%>  </li> 
+
+            <li> Email :  <%=result[i].Email%>  </li>  
+            <li> EmailConfirmed :  <%=result[i].EmailConfirmed%>  </li>  
+            <li> PhoneNumber :  <%=result[i].PhoneNumber%>  </li>  
+            <li> PhoneNumberConfirmed :  <%=result[i].PhoneNumberConfirmed%>  </li>  
+            <li> TwoFactorEnabled :  <%=result[i].TwoFactorEnabled%>  </li>  
+            <li> LockoutEnabled :  <%=result[i].LockoutEnabled%>  </li>  
+        </ul>    
+        <% } %>  
+     
+</body>  
+  
+</html> 
